@@ -1,5 +1,7 @@
 package com.Nimap.Test.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -26,6 +28,7 @@ public class Products {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)  
     @JoinColumn(name = "category_id", referencedColumnName = "cid")  
     // Many products belong to one category (foreign key relation)
+  
     private Categories category;  
 
     // Getter and Setter for All Feilds
