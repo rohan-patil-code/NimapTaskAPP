@@ -3,8 +3,6 @@ package com.Nimap.Test.Models;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,24 +10,23 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Entity  // Marks this class as a JPA entity (database table)
-@Data  // Created a default constructor
+import lombok.Data;
+
+
+@Entity  
+@Data  
 public class Categories {
 	
-    @Id  // Primary key
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-increment primary key
-    private int cid;  // Category ID
+    @Id  
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private int cid; 
     
-    private String cname;  // Category name
+    private String cname;  
     
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)  
-    // One category can have multiple products
     
-    @JsonIgnore //don’t want to return the list of products inside Categories
+    @JsonIgnore 
     private List<Products> products;  
 
   
