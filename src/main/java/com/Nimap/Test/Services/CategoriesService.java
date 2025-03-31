@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 
 import com.Nimap.Test.Models.Categories;
 
+// Interface for CategoryService
 public interface CategoriesService {
 	
 	public Page<Categories> findAllCategories(int page,int size);

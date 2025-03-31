@@ -16,18 +16,23 @@ public class CategoriesServiceImpl implements CategoriesService{
 	@Autowired
 	CategoriesRepo cr;
 
+	
+	// Business logic for Fetching all Categories
 	@Override
 	public Page<Categories> findAllCategories(int page, int size) {
 	Page<Categories> categ=cr.findAll(PageRequest.of(page, size));
 		return categ;
 	}
 
+	// Logic for Adding new Category
 	@Override
 	public boolean saveCat(Categories c) {
 		Categories cat=cr.save(c);
 		return cat!= null ;
 	}
 
+	
+	//logic for find category by id
 	@Override
 	public Categories getCatbyId(int cid) {
 		Optional<Categories> oc=cr.findById(cid);
@@ -41,6 +46,8 @@ public class CategoriesServiceImpl implements CategoriesService{
 	}
 	
 	
+	
+	//logic for delete category by id
 	@Override
 	public boolean DelCatById(int cid) {
 		Optional<Categories> oc = cr.findById(cid);
@@ -53,6 +60,8 @@ public class CategoriesServiceImpl implements CategoriesService{
 	}
 		
 	}
+	
+	// logic for update category by id
 	@Override
 	public boolean updateCategory(int id, Categories c) {
 		Optional<Categories>opcat=cr.findById(id);

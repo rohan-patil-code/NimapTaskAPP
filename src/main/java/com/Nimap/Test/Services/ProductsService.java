@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 
 import com.Nimap.Test.Models.Products;
 
+// interface For productService
 public interface ProductsService {
 	
 	public Page<Products> findAllProds(int page,int size);
