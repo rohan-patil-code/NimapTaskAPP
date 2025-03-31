@@ -13,4 +13,8 @@ public interface ProductsService {
 	Products getProdById(int pid);
 	
 	public boolean DelProdById(int pid);
+	
+	public Products UpdateProd(int pid,Products p);
+	
+	
 }

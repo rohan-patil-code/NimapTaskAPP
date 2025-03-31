@@ -13,6 +13,7 @@ public interface CategoriesService {
 	Categories getCatbyId(int cid);
 	
 	public boolean DelCatById(int cid);
+	
 	boolean updateCategory(int id, Categories c);
 	
 	

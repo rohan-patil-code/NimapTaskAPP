@@ -21,6 +21,8 @@ public class CategoriesController {
 	@Autowired
 	CategoriesService catserv;
 
+	
+	//For Fetching all details with pagination
 	@GetMapping
 	public ResponseEntity<Page<Categories>> getAllCategories(@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "5") int size) {
@@ -31,7 +33,7 @@ public class CategoriesController {
 	}
 
 	
-	
+	//To Add New Category
 	@PostMapping
 	public String AddCategory(@RequestBody Categories c) {
 
@@ -44,7 +46,7 @@ public class CategoriesController {
 	}
 
 	
-	
+	//Find Category By Id
 	@GetMapping(value = "/{cid}")
 	public Categories findCatById(@PathVariable int cid) {
 
@@ -58,7 +60,7 @@ public class CategoriesController {
 	}
 	
 	
-	
+	//To Update Category By id
 	@PutMapping("/{id}")
 	public ResponseEntity<String>updateCatgoery(@PathVariable int id,@RequestBody Categories c)
 	{
@@ -74,7 +76,7 @@ public class CategoriesController {
 	}
 
 	
-	
+	//To Delete Category By Id
 	@DeleteMapping("/{cid}")
 	public String DelById(@PathVariable int cid) {
 

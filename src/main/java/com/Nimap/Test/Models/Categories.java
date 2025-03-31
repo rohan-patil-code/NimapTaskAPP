@@ -1,8 +1,7 @@
 package com.Nimap.Test.Models;
 
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,19 +13,20 @@ import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 
-@Entity  
-@Data  
+@Entity // To Mark Class as Database entity
+@Data  // Getter,Setter,AllArgsConstructors,NoArgsConstructors etc
+//@ToString
 public class Categories {
 	
-    @Id  
+    @Id  // Primary key with autoincreament
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int cid; 
     
     private String cname;  
     
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)  
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)  // defining relations
     
-    @JsonIgnore 
+    @JsonIgnoreProperties("category")// to prevent Looping or we can say recursions
     private List<Products> products;  
 
   
